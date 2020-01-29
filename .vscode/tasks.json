@@ -6,7 +6,7 @@
         {
             "label": "build",
             "type": "shell",
-            "command": "g++ -std=c++11 -g -o ${fileDirname}/${fileBasenameNoExtension} ${file}",
+            "command": "g++ -std=c++11 -g -o ${fileDirname}/build/${fileBasenameNoExtension} ${file}",
             "options": {
                 "cwd": "${workspaceRoot}"
             },
