@@ -6,7 +6,7 @@
         {
             "label": "build",
             "type": "shell",
-            "command": "g++ -std=c++11 -g -o /tmp/${fileBasenameNoExtension} ${file}",
+            "command": "g++ -ftrapv -fwrapv -std=c++11 -g -o /tmp/${fileBasenameNoExtension} ${file}",
             "options": {
                 "cwd": "${workspaceRoot}"
             },
