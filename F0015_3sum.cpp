@@ -18,9 +18,9 @@ public:
             return ans;
         }
         sort(nums.begin(), nums.end());
-        for (int i = 0 ; i < nums.size() - 2 ; i++){
-            if (nums[i] > 0){
-                break;
+        for (int i = 0 ; i < nums.size() - 2 && nums[i] <= 0 ; i++){
+            if (i != 0 && nums[i] == nums[i - 1]){
+                continue;
             }
             int j = i + 1, k = nums.size() - 1;
             while(j < k){   // 双指针向中间移动,
@@ -33,9 +33,6 @@ public:
                     ++j;
                 }else{
                     ans.push_back(vector<int>{nums[i], nums[j], nums[k]});
-                    while(nums[i] == nums[i+1] && i < (nums.size() - 1)){
-                        i++;
-                    }
                     do{
                         ++j;
                     }while(nums[j-1] == nums[j] && j < k);
