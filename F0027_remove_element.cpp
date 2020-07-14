@@ -1,3 +1,7 @@
+#include <vector>
+#include <iostream>
+using namespace std;
+
 /*
  * @lc app=leetcode.cn id=27 lang=cpp
  *
@@ -67,8 +71,39 @@
 class Solution {
 public:
     int removeElement(vector<int>& nums, int val) {
-        
+        int length = nums.size();
+        for (int i = 0 ; i < length; i++){
+            if (nums[i] == val){
+                // 从后面挪一个不为val的数
+                int j = length - 1;
+                while(i <= j){
+                    length--;
+                    if (nums[j] != val){
+                        nums[i] = nums[j];
+                        break;
+                    }
+                    j--;
+                }
+            } 
+        }
+        return length;
     }
 };
 // @lc code=end
 
+int main()
+{
+    vector<int> v = {0, 1, 2, 3, 2, 4, 5, 2, 6, 7, 8, 9};
+
+    Solution solu;
+    cout << solu.removeElement(v, 2) << endl;
+
+    v = {2, 1, 2, 3, 2, 4, 2};
+    cout << solu.removeElement(v, 2) << endl;
+
+    v = {0};
+    cout << solu.removeElement(v, 2) << endl;
+
+    v = {2};
+    cout << solu.removeElement(v, 2) << endl;
+}

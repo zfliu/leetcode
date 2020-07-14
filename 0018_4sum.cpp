@@ -1,3 +1,7 @@
+#include <iostream>
+#include <vector>
+using namespace std;
+
 /*
  * @lc app=leetcode.cn id=18 lang=cpp
  *
@@ -13,3 +17,7 @@ public:
 };
 // @lc code=end
 
+int main()
+{
+    
+}

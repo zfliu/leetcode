@@ -1,3 +1,7 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
 /*
  * @lc app=leetcode.cn id=28 lang=cpp
  *
@@ -42,8 +46,31 @@
 class Solution {
 public:
     int strStr(string haystack, string needle) {
-        
+        if (needle.empty()){
+            return 0;
+        }
+        for (int i = 0 ; i < haystack.size() ; i++){
+            int j = i, k = 0;
+            while(j < haystack.size() && k < needle.size() && haystack[j] == needle[k]){
+                j++;
+                k++;
+            }
+            if (k == needle.size()){
+                return i;
+            }
+        }
+        return -1;
     }
 };
 // @lc code=end
 
+int main()
+{
+    Solution solu;
+
+    cout << solu.strStr("   aaaaaaaaaaaadc  ", "aaa") << endl;
+    cout << solu.strStr("2", "aaa") << endl;
+    cout << solu.strStr("1", "aaa") << endl;
+    cout << solu.strStr("abcabc", "abc") << endl;
+
+}
