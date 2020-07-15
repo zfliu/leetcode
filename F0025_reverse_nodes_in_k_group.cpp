@@ -93,10 +93,9 @@ public:
         ListNode *tail = NULL;
 
         while(head){
-            int i = 0;
             std::stack<ListNode*> s;
             ListNode *ohead = head;
-            for (i = 0 ; i < k && head ; i++){
+            for (int i = 0 ; i < k && head ; i++){
                 if (res == NULL && i == (k - 1)){
                     res = head;
                 }
@@ -107,11 +106,7 @@ public:
                 head = head->next;            
             }
 
-            if (res == NULL){
-                return ohead;
-            }
-
-            if (i == k){
+            if (s.size() == k){
                 // 数量够,反转
                 while(!s.empty()){
                     tail->next = s.top();
@@ -124,6 +119,9 @@ public:
             }
         }
 
+        if (res == NULL){
+            return tail;
+        }
         return res;
     }
 };
