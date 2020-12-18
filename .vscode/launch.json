@@ -15,6 +15,9 @@
             "environment": [],
             "externalConsole": false,
             "preLaunchTask": "build",
+            "osx": {
+                "MIMode": "lldb"
+            },
             "linux": {
                 "MIMode": "gdb",
                 "miDebuggerPath": "/usr/bin/gdb",
@@ -27,6 +30,9 @@
                         "ignoreFailures": true
                     }
                 ],
+            },
+            "windows": {
+
             },
             "logging": {
                 "moduleLoad": false,

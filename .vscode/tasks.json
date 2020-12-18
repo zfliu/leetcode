@@ -5,22 +5,27 @@
     "tasks": [
         {
             "label": "build",
-            "type": "shell",
-            "command": "g++ -ftrapv -fwrapv -std=c++11 -g -o /tmp/${fileBasenameNoExtension} ${file}",
+            "type": "cppbuild",
+            "command": "g++",
+            "args":[
+                "-g",
+                "${file}",
+                "-ftrapv", 
+                "-fwrapv", 
+                "-std=c++11", 
+                "-g",
+                "-o", 
+                "/tmp/${fileBasenameNoExtension}",
+            ],
             "options": {
                 "cwd": "${workspaceRoot}"
             },
-            "problemMatcher": {
-                "owner": "cpp",
-                "fileLocation": ["relative", "${workspaceRoot}"],
-                "pattern": {
-                    "regexp": "^(.*):(\\d+):(\\d+):\\s+(warning|error):\\s+(.*)$",
-                    "file": 1,
-                    "line": 2,
-                    "column": 3,
-                    "severity": 4,
-                    "message": 5
-                }
+            "problemMatcher": [
+                "$gcc"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
             }
         }, 
     ]
